@@ -1,0 +1,51 @@
+class Question:
+    def __init__(self, text, answer):
+        self.text = text
+        self.answer = answer
+
+class Quiz:
+    def __init__(self, questions):
+        self.questions = questions
+        self.score = 0
+        self.current_question_index = 0
+
+    def display_question(self):
+        question = self.questions[self.current_question_index]
+        print(question.text)
+
+    def check_answer(self, user_answer):
+        question = self.questions[self.current_question_index]
+        if user_answer.lower() == question.answer.lower():
+            self.score += 1
+            print("Correct!")
+        else:
+            print("Incorrect. The correct answer is:", question.answer)
+
+    def next_question(self):
+        self.current_question_index += 1
+        if self.current_question_index < len(self.questions):
+            self.display_question()
+        else:
+            self.end_quiz()
+
+    def end_quiz(self):
+        print("Quiz completed! Your score:", self.score)
+
+# Sample questions
+questions = [
+    Question("What is the capital of France?", "Paris"),
+    Question("What is the largest planet in our solar system?", "Jupiter"),
+    Question("Who wrote the play 'Romeo and Juliet'?", "William Shakespeare")
+]
+
+# Create a quiz instance
+quiz = Quiz(questions)
+
+# Start the quiz
+print("Welcome to the Educational Quiz App!")
+quiz.display_question()
+
+while quiz.current_question_index < len(questions):
+    user_answer = input("Your answer: ")
+    quiz.check_answer(user_answer)
+    quiz.next_question()
