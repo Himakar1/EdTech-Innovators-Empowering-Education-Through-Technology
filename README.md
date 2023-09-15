@@ -22,5 +22,6 @@ We welcome contributions from developers, designers, educators, and anyone passi
 2. Create a new branch with a descriptive name for your contribution.
 3. Make your changes or additions.
 4. Submit a pull request, and our team will review your contribution.
+5. 
 
 Let's work together to empower education through technology!
